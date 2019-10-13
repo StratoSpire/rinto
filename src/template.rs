@@ -15,7 +15,7 @@ use walkdir::WalkDir;
 extern crate term;
 
 /// file to clone template to
-// const TMP_PREFIX: &'static str = "porteurbars";
+// const TMP_PREFIX: &'static str = "rinto";
 /// subdirectory containing template source
 const TEMPLATE_DIR: &'static str = "template";
 
@@ -104,7 +104,7 @@ impl Template {
 
             // path relatived based on scratch dir
             let localpath =
-                path.to_str().unwrap().trim_left_matches(scratchpath);
+                path.to_str().unwrap().trim_start_matches(scratchpath);
 
             // eval path as template
             let evalpath =
@@ -350,7 +350,7 @@ mod tests {
     #[test]
     fn bars_respects_escapes_tags() {
         let mut map = BTreeMap::new();
-        map.insert("name".to_owned(), "porteurbars".to_owned());
+        map.insert("name".to_owned(), "rinto".to_owned());
         assert_eq!(
             "Hello, {{upper name}}",
             bars()
@@ -362,9 +362,9 @@ mod tests {
     #[test]
     fn bars_upper() {
         let mut map = BTreeMap::new();
-        map.insert("name".to_owned(), "porteurbars".to_owned());
+        map.insert("name".to_owned(), "rinto".to_owned());
         assert_eq!(
-            "Hello, PORTEURBARS",
+            "Hello, RINTO",
             bars()
                 .render_template("Hello, {{upper name}}", &map)
                 .unwrap()
@@ -374,9 +374,9 @@ mod tests {
     #[test]
     fn bars_capitalize() {
         let mut map = BTreeMap::new();
-        map.insert("name".to_owned(), "porteurbars".to_owned());
+        map.insert("name".to_owned(), "rinto".to_owned());
         assert_eq!(
-            "Hello, Porteurbars",
+            "Hello, Rinto",
             bars()
                 .render_template("Hello, {{capitalize name}}", &map)
                 .unwrap()
@@ -422,9 +422,9 @@ mod tests {
     #[test]
     fn bars_lower() {
         let mut map = BTreeMap::new();
-        map.insert("name".to_owned(), "PORTEURBARS".to_owned());
+        map.insert("name".to_owned(), "RINTO".to_owned());
         assert_eq!(
-            "Hello, porteurbars",
+            "Hello, rinto",
             bars()
                 .render_template("Hello, {{lower name}}", &map)
                 .unwrap()

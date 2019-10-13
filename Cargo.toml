@@ -1,31 +1,31 @@
 [package]
-name = "porteurbars"
+name = "rinto"
 version = "0.1.5"
-authors = ["softprops <d.tangren@gmail.com>"]
+authors = ["Ry Koch <rythehuman@gmail.com>"]
 description = "portable git hosted project template"
-documentation = "https://softprops.github.io/porteurbars"
-homepage = "https://github.com/softprops/porteurbars"
-repository = "https://github.com/softprops/porteurbars"
+documentation = "https://stratospire.github.io/rinto"
+homepage = "https://github.com/stratospire/rinto"
+repository = "https://github.com/stratospire/rinto"
 keywords = ["cli", "github", "template"]
 license = "MIT"
 readme = "README.md"
 
-[[bin]]
-doc = false
-name = "porteurbars"
-path = "src/bin/porteurbars.rs"
+#[[bin]]
+#doc = false
+#name = "rinto"
+#path = "src/bin/rinto.rs"
 
 [dependencies]
-case = "0.1.0"
-clap = "2.31.2"
-env_logger = "0.5.10"
-error-chain = "0.11.0"
+case = "1.0.0"
+clap = "2.33.0"
+env_logger = "0.7.0"
+error-chain = "0.12.1"
 difference = "2.0.0"
-git2 = "0.7.1"
+git2 = "0.10.1"
 handlebars = "0.32.4"
-lazy_static = "1.0.0"
-log = "0.4.1"
-regex = "1.0.0"
+lazy_static = "1.4.0"
+log = "0.4.8"
+regex = "1.3.1"
 tempdir = "0.3.7"
-walkdir = "2.1.4"
-term = "0.5.1"
+walkdir = "2.2.9"
+term = "0.6.1"

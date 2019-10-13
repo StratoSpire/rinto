@@ -2,24 +2,24 @@
 extern crate log;
 extern crate env_logger;
 extern crate clap;
-extern crate porteurbars;
+extern crate rinto;
 extern crate tempdir;
 
 use clap::{App, Arg, ArgMatches};
-use porteurbars::{Result, Template};
-use porteurbars::git;
+use rinto::{Result, Template};
+use rinto::git;
 use tempdir::TempDir;
 
 fn run(args: ArgMatches) -> Result<()> {
     let repo = args.value_of("repository").unwrap();
-    let url = porteurbars::git::Url::from_str(repo)?;
+    let url = rinto::git::Url::from_str(repo)?;
     let target = args.value_of("target").unwrap_or(".");
     let root = args.value_of("template_root");
     let revision = args.value_of("rev").unwrap_or("master");
     let yes = args.occurrences_of("yes") > 0;
     let replace = args.occurrences_of("keep") > 0;
     info!("Cloning...");
-    let tmp = TempDir::new("porteurbars")?;
+    let tmp = TempDir::new("rinto")?;
     git::clone(url, &tmp, revision)?;
     info!("Applying template...");
     Template::new(&tmp).apply(target, root, yes, replace)?;

@@ -4,7 +4,6 @@ use handlebars::{RenderError, TemplateError, TemplateRenderError};
 use std::io;
 
 
-/// Enumeration of types of errors
 error_chain! {
 
     foreign_links {
